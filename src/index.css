@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-light: #5f6caf;
+  --secondary-light: #e7eaf6;
+  --text-light: #333;
+  --background-light: #f8f9fa;
+  --accent-light: #38b2ac;
+  
+  --primary-dark: #bb86fc;
+  --secondary-dark: #3a3f58;
+  --text-dark: #e2e8f0;
+  --background-dark: #121212;
+  --accent-dark: #03dac6;
+  
+  --transition-speed: 0.5s;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color var(--transition-speed) ease;
+}
+
+body.light-theme {
+  background-color: var(--background-light);
+  color: var(--text-light);
+}
+
+body.dark-theme {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+}
+
+.theme-transition-overlay {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: scale(0);
+  border-radius: 50%;
+  transition: transform 1s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.theme-transition-overlay.light {
+  background-color: var(--background-light);
+}
+
+.theme-transition-overlay.dark {
+  background-color: var(--background-dark);
+}
+
+.theme-transition-overlay.active {
+  transform: scale(5);
+} 
