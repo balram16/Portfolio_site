@@ -21,18 +21,17 @@ const HomePage = () => {
   const [isTransitioning, setIsTransitioning] = useState(false);
   const overlayRef = useRef<HTMLDivElement>(null);
 
+  // Run only once on initial mount to set the theme from localStorage or system preference
   useEffect(() => {
-    // Check for user's preferred color scheme
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      setTheme(savedTheme as 'light' | 'dark');
+    if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
+      setTheme(savedTheme);
     } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       setTheme('dark');
     }
-    
-    document.body.className = `${theme}-theme`;
-  }, [theme]);
+  }, []);
   
+  // Update body class and localStorage when theme changes
   useEffect(() => {
     document.body.className = `${theme}-theme`;
     localStorage.setItem('theme', theme);
