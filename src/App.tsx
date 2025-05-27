@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import Header from './components/Header';
 import Home from './components/Home';
@@ -53,22 +53,20 @@ const HomePage = () => {
 
   return (
     <AppContainer>
-      <AnimatePresence>
-        {isTransitioning && (
-          <motion.div 
-            key="theme-overlay"
-            ref={overlayRef}
-            className={`theme-transition-overlay ${theme === 'light' ? 'dark' : 'light'} active`}
-            style={{ 
-              left: overlayPosition.x + 'px', 
-              top: overlayPosition.y + 'px' 
-            }}
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-          />
-        )}
-      </AnimatePresence>
+      {isTransitioning && (
+        <motion.div 
+          ref={overlayRef}
+          className={`theme-transition-overlay ${theme === 'light' ? 'dark' : 'light'} active`}
+          style={{ 
+            left: overlayPosition.x + 'px', 
+            top: overlayPosition.y + 'px' 
+          }}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        />
+      )}
       
       <Header theme={theme} toggleTheme={handleThemeToggle} />
       
