@@ -54,9 +54,10 @@ const HomePage = () => {
 
   return (
     <AppContainer>
-      <AnimatePresence mode="wait">
-        {isTransitioning && (
+      {isTransitioning && (
+        <AnimatePresence mode="wait" key="overlay-animation">
           <motion.div 
+            key="theme-overlay"
             ref={overlayRef}
             className={`theme-transition-overlay ${theme === 'light' ? 'dark' : 'light'} active`}
             style={{ 
@@ -67,8 +68,8 @@ const HomePage = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           />
-        )}
-      </AnimatePresence>
+        </AnimatePresence>
+      )}
       
       <Header theme={theme} toggleTheme={handleThemeToggle} />
       

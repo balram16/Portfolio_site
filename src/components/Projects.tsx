@@ -213,13 +213,13 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
   const projects = [
     {
       id: 1,
-      title: 'Farm-Assure',
-      description: 'A blockchain-based platform enabling transparent crop trading, smart contracts for secure deals, and AI insights on crop quality and trends.',
+      title: 'Farming Trading App',
+      description: 'A decentralized marketplace for farmers to sell crops directly to buyers using smart contracts for escrow and payment.',
       image: '/images/farmer.png',
       category: 'Web App',
-      tags: ['React', 'Solidity', 'Web3.js','IPFS','Truffle'],
-      demoLink: 'https://farm-assure-abin.vercel.app/',
-      codeLink: 'https://github.com/balram16/FarmAssure.git'
+      tags: ['React', 'Solidity', 'Ethers.js', 'Node.js', 'Express', 'MongoDB'],
+      demoLink: '#',
+      codeLink: '#'
     },
     {
       id: 2,
@@ -256,19 +256,6 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
       transition: {
         staggerChildren: 0.1,
         delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 100,
-        damping: 10
       }
     }
   };
