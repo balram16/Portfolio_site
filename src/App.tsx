@@ -9,7 +9,6 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
-import ThemeToggle from './components/ThemeToggle';
 
 const AppContainer = styled.div`
   min-height: 100vh;
@@ -32,7 +31,7 @@ const HomePage = () => {
     }
     
     document.body.className = `${theme}-theme`;
-  }, []);
+  }, [theme]);
   
   useEffect(() => {
     document.body.className = `${theme}-theme`;
@@ -54,8 +53,8 @@ const HomePage = () => {
 
   return (
     <AppContainer>
-      {isTransitioning && (
-        <AnimatePresence mode="wait" key="overlay-animation">
+      <AnimatePresence>
+        {isTransitioning && (
           <motion.div 
             key="theme-overlay"
             ref={overlayRef}
@@ -68,8 +67,8 @@ const HomePage = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
           />
-        </AnimatePresence>
-      )}
+        )}
+      </AnimatePresence>
       
       <Header theme={theme} toggleTheme={handleThemeToggle} />
       
