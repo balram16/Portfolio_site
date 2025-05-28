@@ -251,7 +251,7 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
         <ButtonContainer variants={containerVariants}>
           <PrimaryButton 
             $mode={theme} 
-            href="https://www.dropbox.com/scl/fi/ixksmrv6n383js92b4mfk/BalramResume.pdf?rlkey=jy70bnqw0n1irijfpugbf3zld&st=zqjamwg9&dl=0" 
+            href="https://www.dropbox.com/scl/fi/ixksmrv6n383js92b4mfk/BalramResume.pdf?rlkey=jy70bnqw0n1irijfpugbf3zld&st=87zalhz9&dl=0" 
             target="_blank"
             rel="noopener noreferrer"
             variants={buttonVariants}
