@@ -229,7 +229,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
       category: 'Mobile App',
       tags: ['React Native', 'Expo', 'Express.js',' MongoDB','Google Maps API','WebSockets'],
       demoLink: '#',
-      codeLink: '#'
+      codeLink: 'https://github.com/balram16/Crowd_Detector.git'
     },
     {
       id: 3,
