@@ -213,7 +213,7 @@ const About: React.FC<AboutProps> = ({ theme }) => {
             transition={{ type: 'spring', stiffness: 300 }}
           >
             <Image 
-              src="/images/me.jpeg" 
+              src="https://drive.google.com/file/d/1qxBRHfyAGkK7fR6QFBnZFfIL1mmOaPyz/view?usp=drive_link" 
               alt="Balram Panigrahi" 
               fill 
               style={{ objectFit: 'cover' }}
