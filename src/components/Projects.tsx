@@ -7,6 +7,8 @@ import Image from 'next/image';
 import '../../public/images/chatty.jpg'
 import '../../public/images/farmer.png'
 import '../../public/images/crowd.png'
+import '../../public/images/trustlynk.png'
+import '../../public/images/swapsewa.png'
 
 interface ProjectsProps {
   theme: 'light' | 'dark';
@@ -27,11 +29,11 @@ const ProjectsSection = styled.section`
   }
 `;
 
-const SectionTitle = styled(motion.h2)<{ $mode: 'light' | 'dark' }>`
+const SectionTitle = styled(motion.h2) <{ $mode: 'light' | 'dark' }>`
   font-size: 2.5rem;
   font-weight: 700;
-  color: ${props => props.$mode === 'light' 
-    ? 'var(--text-light)' 
+  color: ${props => props.$mode === 'light'
+    ? 'var(--text-light)'
     : 'var(--text-dark)'};
   position: relative;
   margin-bottom: 20px;
@@ -45,17 +47,17 @@ const SectionTitle = styled(motion.h2)<{ $mode: 'light' | 'dark' }>`
     transform: translateX(-50%);
     width: 60px;
     height: 4px;
-    background: ${props => props.$mode === 'light' 
-      ? 'var(--accent-light)' 
-      : 'var(--accent-dark)'};
+    background: ${props => props.$mode === 'light'
+    ? 'var(--accent-light)'
+    : 'var(--accent-dark)'};
   }
 `;
 
-const SectionDescription = styled(motion.p)<{ $mode: 'light' | 'dark' }>`
+const SectionDescription = styled(motion.p) <{ $mode: 'light' | 'dark' }>`
   font-size: 1.1rem;
   line-height: 1.6;
-  color: ${props => props.$mode === 'light' 
-    ? 'var(--text-light)' 
+  color: ${props => props.$mode === 'light'
+    ? 'var(--text-light)'
     : 'var(--text-dark)'};
   opacity: 0.9;
   text-align: center;
@@ -71,27 +73,27 @@ const FilterContainer = styled(motion.div)`
   justify-content: center;
 `;
 
-const FilterButton = styled(motion.button)<{ $isActive: boolean, $mode: 'light' | 'dark' }>`
+const FilterButton = styled(motion.button) <{ $isActive: boolean, $mode: 'light' | 'dark' }>`
   padding: 8px 20px;
   border-radius: 30px;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
-  background-color: ${props => props.$isActive 
+  background-color: ${props => props.$isActive
     ? (props.$mode === 'light' ? 'var(--primary-light)' : 'var(--primary-dark)')
     : 'transparent'};
-  color: ${props => props.$isActive 
-    ? '#fff' 
+  color: ${props => props.$isActive
+    ? '#fff'
     : (props.$mode === 'light' ? 'var(--text-light)' : 'var(--text-dark)')};
-  border: 2px solid ${props => props.$mode === 'light' 
-    ? 'var(--primary-light)' 
+  border: 2px solid ${props => props.$mode === 'light'
+    ? 'var(--primary-light)'
     : 'var(--primary-dark)'};
 
   &:hover {
-    background-color: ${props => props.$mode === 'light' 
-      ? 'var(--primary-light)' 
-      : 'var(--primary-dark)'};
+    background-color: ${props => props.$mode === 'light'
+    ? 'var(--primary-light)'
+    : 'var(--primary-dark)'};
     color: #fff;
   }
 `;
@@ -108,11 +110,11 @@ const ProjectsGrid = styled(motion.div)`
   }
 `;
 
-const ProjectCard = styled(motion.div)<{ $mode: 'light' | 'dark' }>`
+const ProjectCard = styled(motion.div) <{ $mode: 'light' | 'dark' }>`
   border-radius: 15px;
   overflow: hidden;
-  background-color: ${props => props.$mode === 'light' 
-    ? '#fff' 
+  background-color: ${props => props.$mode === 'light'
+    ? '#fff'
     : 'var(--secondary-dark)'};
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
@@ -137,27 +139,56 @@ const ProjectOverlay = styled(motion.div)`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.92) 0%,
+    rgba(0, 0, 0, 0.55) 60%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 20px;
+  justify-content: flex-end;
+  padding-bottom: 24px;
+  gap: 14px;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.35s ease;
+`;
+
+const OverlayButtons = styled.div`
+  display: flex;
+  gap: 12px;
 `;
 
 const OverlayButton = styled(motion.a)`
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background-color: white;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  color: var(--primary-light);
-  font-size: 1.2rem;
+  gap: 7px;
+  padding: 9px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   text-decoration: none;
   cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s ease, transform 0.2s ease;
+
+  &.demo {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1a1a2e;
+    border: none;
+  }
+
+  &.code {
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
+    border: 1.5px solid rgba(255, 255, 255, 0.45);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 `;
 
 const ProjectContent = styled.div`
@@ -171,16 +202,16 @@ const ProjectTitle = styled.h3<{ $mode: 'light' | 'dark' }>`
   font-size: 1.3rem;
   font-weight: 600;
   margin-bottom: 10px;
-  color: ${props => props.$mode === 'light' 
-    ? 'var(--text-light)' 
+  color: ${props => props.$mode === 'light'
+    ? 'var(--text-light)'
     : 'var(--text-dark)'};
 `;
 
 const ProjectDescription = styled.p<{ $mode: 'light' | 'dark' }>`
   font-size: 1rem;
   line-height: 1.6;
-  color: ${props => props.$mode === 'light' 
-    ? 'var(--text-light)' 
+  color: ${props => props.$mode === 'light'
+    ? 'var(--text-light)'
     : 'var(--text-dark)'};
   opacity: 0.9;
   margin-bottom: 20px;
@@ -199,17 +230,17 @@ const Tag = styled.span<{ $mode: 'light' | 'dark' }>`
   border-radius: 20px;
   font-size: 0.8rem;
   font-weight: 500;
-  background-color: ${props => props.$mode === 'light' 
-    ? 'rgba(95, 108, 175, 0.1)' 
+  background-color: ${props => props.$mode === 'light'
+    ? 'rgba(95, 108, 175, 0.1)'
     : 'rgba(187, 134, 252, 0.1)'};
-  color: ${props => props.$mode === 'light' 
-    ? 'var(--primary-light)' 
+  color: ${props => props.$mode === 'light'
+    ? 'var(--primary-light)'
     : 'var(--primary-dark)'};
 `;
 
 const Projects: React.FC<ProjectsProps> = ({ theme }) => {
   const [activeFilter, setActiveFilter] = useState('All');
-  
+
   const projects = [
     {
       id: 1,
@@ -227,7 +258,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
       description: 'Mobile app to monitor real-time crowd density, traffic, and emergency services using location tracking and AI.',
       image: '/images/crowd.png',
       category: 'Mobile App',
-      tags: ['React Native', 'Expo', 'Express.js',' MongoDB','Google Maps API','WebSockets'],
+      tags: ['React Native', 'Expo', 'Express.js', ' MongoDB', 'Google Maps API', 'WebSockets'],
       demoLink: '#',
       codeLink: 'https://github.com/balram16/Crowd_Detector.git'
     },
@@ -237,16 +268,36 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
       description: 'A privacy-first messaging platform with end-to-end encryption, smart contract authentication, and IPFS-based media storage.',
       image: '/images/chatty.jpg',
       category: 'Web App',
-      tags: ['React', 'Solidity', 'Web3.js','IPFS','Truffle','Node,js'],
+      tags: ['React', 'Solidity', 'Web3.js', 'IPFS', 'Truffle', 'Node,js'],
       demoLink: 'https://chatty-phi-six.vercel.app/',
       codeLink: 'https://github.com/balram16/Chat_App.git'
+    },
+    {
+      id: 4,
+      title: 'TrustLynk',
+      description: 'Decentralized Insurance Protocol enabling automated claim settlements using blockchain-based escrow and smart contracts.',
+      image: '/images/trustlynk.png',
+      category: 'Web App',
+      tags: ['React', 'Solidity', 'Ethers.js', 'Node.js', 'Express', 'MongoDB', 'Chainlink', 'IPFS'],
+      demoLink: 'https://trust-ly-7srv.vercel.app/',
+      codeLink: 'https://github.com/balram16/trust-ly'
+    },
+    {
+      id: 5,
+      title: 'SwapSewa',
+      description: 'Decentralized barter marketplace enabling secure peer-to-peer exchange of goods and services using blockchain-based smart contracts.',
+      image: '/images/swapsewa.png',
+      category: 'Web App',
+      tags: ['React', 'Solidity', 'Ethers.js', 'Node.js', 'Express', 'MongoDB', 'IPFS'],
+      demoLink: 'https://swapsewaaa.vercel.app/',
+      codeLink: 'https://github.com/balram16/swapsewa1/'
     }
   ];
 
   const filters = ['All', 'Web App', 'Mobile App', 'UI/UX'];
 
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
+  const filteredProjects = activeFilter === 'All'
+    ? projects
     : projects.filter(project => project.category === activeFilter);
 
   const containerVariants = {
@@ -303,7 +354,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
 
   return (
     <ProjectsSection id="projects">
-      <SectionTitle 
+      <SectionTitle
         $mode={theme}
         initial={{ opacity: 0, y: -50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -312,8 +363,8 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
       >
         My Projects
       </SectionTitle>
-      
-      <SectionDescription 
+
+      <SectionDescription
         $mode={theme}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -322,7 +373,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
       >
         Here are some of my recent projects. Each project is a unique piece of development that showcases my skills and passion for building exceptional digital experiences.
       </SectionDescription>
-      
+
       <FilterContainer
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -330,7 +381,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
         transition={{ delay: 0.3 }}
       >
         {filters.map((filter, index) => (
-          <FilterButton 
+          <FilterButton
             key={index}
             $mode={theme}
             $isActive={activeFilter === filter}
@@ -342,7 +393,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           </FilterButton>
         ))}
       </FilterContainer>
-      
+
       <ProjectsGrid
         variants={containerVariants}
         initial="hidden"
@@ -350,7 +401,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
         viewport={{ once: true, amount: 0.1 }}
       >
         {filteredProjects.map((project) => (
-          <ProjectCard 
+          <ProjectCard
             key={project.id}
             $mode={theme}
             variants={cardVariants}
@@ -362,7 +413,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                 src={project.image}
                 alt={project.title}
                 fill
-                style={{ 
+                style={{
                   objectFit: project.title === 'Crowd Detector' ? 'contain' : 'cover',
                   padding: project.title === 'Crowd Detector' ? '10px' : '0',
                   backgroundColor: project.title === 'Crowd Detector' ? 'rgba(0,0,0,0.05)' : 'transparent'
@@ -370,26 +421,28 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                 priority
               />
               <ProjectOverlay variants={overlayVariants}>
-                <OverlayButton 
-                  href={project.demoLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                >
-                  Demo
-                </OverlayButton>
-                <OverlayButton 
-                  href={project.codeLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variants={buttonVariants}
-                  whileHover="hover"
-                  whileTap="tap"
-                >
-                  Code
-                </OverlayButton>
+                <OverlayButtons>
+                  <OverlayButton
+                    className="demo"
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span>&#x2197;</span> Live Demo
+                  </OverlayButton>
+                  <OverlayButton
+                    className="code"
+                    href={project.codeLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span>&lt;/&gt;</span> View Code
+                  </OverlayButton>
+                </OverlayButtons>
               </ProjectOverlay>
             </ProjectImage>
             <ProjectContent>

@@ -60,13 +60,13 @@ const ProfileImage = styled(motion.div)`
   }
 `;
 
-const ImageBackground = styled(motion.div)<{ $mode: 'light' | 'dark' }>`
+const ImageBackground = styled(motion.div) <{ $mode: 'light' | 'dark' }>`
   position: absolute;
   width: 300px;
   height: 300px;
   border-radius: 20px;
-  background: ${props => props.$mode === 'light' 
-    ? 'var(--primary-light)' 
+  background: ${props => props.$mode === 'light'
+    ? 'var(--primary-light)'
     : 'var(--primary-dark)'};
   top: 20px;
   left: 20px;
@@ -85,11 +85,11 @@ const TextContainer = styled(motion.div)`
   gap: 20px;
 `;
 
-const SectionTitle = styled(motion.h2)<{ $mode: 'light' | 'dark' }>`
+const SectionTitle = styled(motion.h2) <{ $mode: 'light' | 'dark' }>`
   font-size: 2.5rem;
   font-weight: 700;
-  color: ${props => props.$mode === 'light' 
-    ? 'var(--text-light)' 
+  color: ${props => props.$mode === 'light'
+    ? 'var(--text-light)'
     : 'var(--text-dark)'};
   position: relative;
   margin-bottom: 20px;
@@ -102,16 +102,16 @@ const SectionTitle = styled(motion.h2)<{ $mode: 'light' | 'dark' }>`
     width: 60px;
     height: 4px;
     background: ${props => props.$mode === 'light'
-      ? 'var(--accent-light)' 
-      : 'var(--accent-dark)'};
+    ? 'var(--accent-light)'
+    : 'var(--accent-dark)'};
   }
 `;
 
-const Paragraph = styled(motion.p)<{ $mode: 'light' | 'dark' }>`
+const Paragraph = styled(motion.p) <{ $mode: 'light' | 'dark' }>`
   font-size: 1.1rem;
   line-height: 1.8;
-  color: ${props => props.$mode === 'light' 
-    ? 'var(--text-light)' 
+  color: ${props => props.$mode === 'light'
+    ? 'var(--text-light)'
     : 'var(--text-dark)'};
   opacity: 0.9;
   margin-bottom: 15px;
@@ -137,13 +137,13 @@ const InfoItem = styled(motion.div)`
 const InfoLabel = styled.span<{ $mode: 'light' | 'dark' }>`
   font-weight: 600;
   color: ${props => props.$mode === 'light'
-    ? 'var(--primary-light)' 
+    ? 'var(--primary-light)'
     : 'var(--primary-dark)'};
 `;
 
 const InfoValue = styled.span<{ $mode: 'light' | 'dark' }>`
   color: ${props => props.$mode === 'light'
-    ? 'var(--text-light)' 
+    ? 'var(--text-light)'
     : 'var(--text-dark)'};
 `;
 
@@ -207,21 +207,21 @@ const About: React.FC<AboutProps> = ({ theme }) => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <ProfileImage 
+          <ProfileImage
             variants={imageVariants}
             whileHover={{ scale: 1.05 }}
             transition={{ type: 'spring', stiffness: 300 }}
           >
-            <Image 
-              src="https://i.postimg.cc/bJVNkb3S/me.jpg" 
-              alt="Balram Panigrahi" 
-              fill 
+            <Image
+              src="/images/me.jpeg"
+              alt="Balram Panigrahi"
+              fill
               style={{ objectFit: 'cover' }}
               priority
             />
           </ProfileImage>
-          <ImageBackground 
-            $mode={theme} 
+          <ImageBackground
+            $mode={theme}
             variants={backgroundVariants}
             whileHover={{ scale: 1.1, rotate: 5 }}
             transition={{ type: 'spring', stiffness: 300 }}
@@ -236,34 +236,34 @@ const About: React.FC<AboutProps> = ({ theme }) => {
         >          <SectionTitle $mode={theme} variants={itemVariants}>
             About Me
           </SectionTitle>
-          
+
           <Paragraph $mode={theme} variants={itemVariants}>
-          Hello! I'm Balram Panigrahi, a passionate full stack and blockchain developer specializing in creating secure, scalable, and innovative web applications.
+            Hello! I'm Balram Panigrahi, a passionate full stack and blockchain developer specializing in creating secure, scalable, and innovative web applications.
           </Paragraph>
-          
+
           <Paragraph $mode={theme} variants={itemVariants}>
             With a strong foundation in software development and a keen eye for detail, I strive to write clean, efficient, and maintainable code. I'm constantly learning and exploring new technologies to stay at the forefront of the industry.
           </Paragraph>
-          
+
           <InfoContainer variants={containerVariants}>
             <InfoItem variants={itemVariants}>
               <InfoLabel $mode={theme}>Name:</InfoLabel>
               <InfoValue $mode={theme}>Balram Panigrahi</InfoValue>
             </InfoItem>
-            
+
             <InfoItem variants={itemVariants}>
               <InfoLabel $mode={theme}>Email:</InfoLabel>
               <InfoValue $mode={theme}>panigrahibalram16@gmail.com</InfoValue>
             </InfoItem>
-            
+
             <InfoItem variants={itemVariants}>
               <InfoLabel $mode={theme}>Location:</InfoLabel>
               <InfoValue $mode={theme}>India</InfoValue>
             </InfoItem>
-            
+
             <InfoItem variants={itemVariants}>
               <InfoLabel $mode={theme}>Experience:</InfoLabel>
-              <InfoValue $mode={theme}>2+ Month</InfoValue>
+              <InfoValue $mode={theme}>6 Month</InfoValue>
             </InfoItem>
           </InfoContainer>
         </TextContainer>

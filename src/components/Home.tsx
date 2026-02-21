@@ -32,19 +32,19 @@ const ContentContainer = styled.div`
   z-index: 1;
 `;
 
-const Greeting = styled(motion.h3)<{ $mode: 'light' | 'dark' }>`
+const Greeting = styled(motion.h3) <{ $mode: 'light' | 'dark' }>`
   font-size: 1.5rem;
   font-weight: 500;
-  color: ${props => props.$mode === 'light' 
-    ? 'var(--accent-light)' 
+  color: ${props => props.$mode === 'light'
+    ? 'var(--accent-light)'
     : 'var(--accent-dark)'};
 `;
 
-const Name = styled(motion.h1)<{ $mode: 'light' | 'dark' }>`
+const Name = styled(motion.h1) <{ $mode: 'light' | 'dark' }>`
   font-size: 4rem;
   font-weight: 700;
-  background: ${props => props.$mode === 'light' 
-    ? 'linear-gradient(135deg, var(--primary-light), var(--accent-light))' 
+  background: ${props => props.$mode === 'light'
+    ? 'linear-gradient(135deg, var(--primary-light), var(--accent-light))'
     : 'linear-gradient(135deg, var(--primary-dark), var(--accent-dark))'};
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -55,12 +55,12 @@ const Name = styled(motion.h1)<{ $mode: 'light' | 'dark' }>`
   }
 `;
 
-const Title = styled(motion.h2)<{ $mode: 'light' | 'dark' }>`
+const Title = styled(motion.h2) <{ $mode: 'light' | 'dark' }>`
   font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 10px;
-  color: ${props => props.$mode === 'light' 
-    ? 'var(--text-light)' 
+  color: ${props => props.$mode === 'light'
+    ? 'var(--text-light)'
     : 'var(--text-dark)'};
 
   @media (max-width: 768px) {
@@ -68,12 +68,12 @@ const Title = styled(motion.h2)<{ $mode: 'light' | 'dark' }>`
   }
 `;
 
-const Description = styled(motion.p)<{ $mode: 'light' | 'dark' }>`
+const Description = styled(motion.p) <{ $mode: 'light' | 'dark' }>`
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 30px;
-  color: ${props => props.$mode === 'light' 
-    ? 'var(--text-light)' 
+  color: ${props => props.$mode === 'light'
+    ? 'var(--text-light)'
     : 'var(--text-dark)'};
   opacity: 0.9;
 `;
@@ -101,24 +101,24 @@ const Button = styled(motion.a)`
   gap: 10px;
 `;
 
-const PrimaryButton = styled(Button)<{ $mode: 'light' | 'dark' }>`
-  background: ${props => props.$mode === 'light' 
-    ? 'var(--primary-light)' 
+const PrimaryButton = styled(Button) <{ $mode: 'light' | 'dark' }>`
+  background: ${props => props.$mode === 'light'
+    ? 'var(--primary-light)'
     : 'var(--primary-dark)'};
-  color: ${props => props.$mode === 'light' 
-    ? '#fff' 
+  color: ${props => props.$mode === 'light'
+    ? '#fff'
     : 'var(--background-dark)'};
   border: none;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 `;
 
-const SecondaryButton = styled(Button)<{ $mode: 'light' | 'dark' }>`
+const SecondaryButton = styled(Button) <{ $mode: 'light' | 'dark' }>`
   background: transparent;
-  color: ${props => props.$mode === 'light' 
-    ? 'var(--primary-light)' 
+  color: ${props => props.$mode === 'light'
+    ? 'var(--primary-light)'
     : 'var(--primary-dark)'};
-  border: 2px solid ${props => props.$mode === 'light' 
-    ? 'var(--primary-light)' 
+  border: 2px solid ${props => props.$mode === 'light'
+    ? 'var(--primary-light)'
     : 'var(--primary-dark)'};
 `;
 
@@ -130,11 +130,11 @@ const BackgroundShapes = styled.div`
   z-index: 0;
 `;
 
-const Shape = styled(motion.div)<{ $mode: 'light' | 'dark' }>`
+const Shape = styled(motion.div) <{ $mode: 'light' | 'dark' }>`
   position: absolute;
   border-radius: 50%;
-  background: ${props => props.$mode === 'light' 
-    ? 'linear-gradient(135deg, var(--primary-light), var(--accent-light))' 
+  background: ${props => props.$mode === 'light'
+    ? 'linear-gradient(135deg, var(--primary-light), var(--accent-light))'
     : 'linear-gradient(135deg, var(--primary-dark), var(--accent-dark))'};
   opacity: 0.1;
 `;
@@ -201,13 +201,13 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
   return (
     <HomeSection id="home">
       <BackgroundShapes>
-        <Shape 
+        <Shape
           $mode={theme}
           style={{ top: '10%', left: '10%', width: '300px', height: '300px' }}
           variants={shapeVariants}
           animate="animate"
         />
-        <Shape 
+        <Shape
           $mode={theme}
           style={{ bottom: '20%', right: '15%', width: '250px', height: '250px' }}
           variants={{
@@ -223,7 +223,7 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
           }}
           animate="animate"
         />
-        <Shape 
+        <Shape
           $mode={theme}
           style={{ top: '40%', right: '30%', width: '150px', height: '150px' }}
           variants={{
@@ -249,9 +249,9 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
           I build exceptional digital experiences with a focus on performance, accessibility, and beautiful design.
         </Description>
         <ButtonContainer variants={containerVariants}>
-          <PrimaryButton 
-            $mode={theme} 
-            href="https://www.dropbox.com/scl/fi/ixksmrv6n383js92b4mfk/BalramResume.pdf?rlkey=jy70bnqw0n1irijfpugbf3zld&st=87zalhz9&dl=0" 
+          <PrimaryButton
+            $mode={theme}
+            href="/Balram Resume2.pdf"
             target="_blank"
             rel="noopener noreferrer"
             variants={buttonVariants}
@@ -260,9 +260,9 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
           >
             Resume <span style={{ marginLeft: '5px', fontSize: '14px' }}>↓</span>
           </PrimaryButton>
-          <SecondaryButton 
-            $mode={theme} 
-            href="#contact" 
+          <SecondaryButton
+            $mode={theme}
+            href="#contact"
             variants={buttonVariants}
             whileHover="hover"
             whileTap="tap"

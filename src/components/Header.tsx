@@ -9,7 +9,7 @@ interface HeaderProps {
   toggleTheme?: (e: React.MouseEvent) => void;
 }
 
-const HeaderContainer = styled(motion.header)<{ $mode: 'light' | 'dark' }>`
+const HeaderContainer = styled(motion.header) <{ $mode: 'light' | 'dark' }>`
   position: fixed;
   top: 0;
   left: 0;
@@ -20,8 +20,8 @@ const HeaderContainer = styled(motion.header)<{ $mode: 'light' | 'dark' }>`
   align-items: center;
   z-index: 100;
   backdrop-filter: blur(10px);
-  background: ${props => props.$mode === 'light' 
-    ? 'rgba(248, 249, 250, 0.8)' 
+  background: ${props => props.$mode === 'light'
+    ? 'rgba(248, 249, 250, 0.8)'
     : 'rgba(18, 18, 18, 0.8)'};
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.5s ease;
@@ -31,11 +31,11 @@ const HeaderContainer = styled(motion.header)<{ $mode: 'light' | 'dark' }>`
   }
 `;
 
-const Logo = styled(motion.div)<{ $mode: 'light' | 'dark' }>`
+const Logo = styled(motion.div) <{ $mode: 'light' | 'dark' }>`
   font-size: 1.8rem;
   font-weight: 700;
-  color: ${props => props.$mode === 'light' 
-    ? 'var(--primary-light)' 
+  color: ${props => props.$mode === 'light'
+    ? 'var(--primary-light)'
     : 'var(--primary-dark)'};
   cursor: pointer;
   transition: all 0.3s ease;
@@ -66,14 +66,14 @@ const MobileMenuButton = styled(motion.button)`
   }
 `;
 
-const MobileMenu = styled(motion.div)<{ $mode: 'light' | 'dark' }>`
+const MobileMenu = styled(motion.div) <{ $mode: 'light' | 'dark' }>`
   position: fixed;
   top: 0;
   right: 0;
   width: 70%;
   height: 100vh;
-  background: ${props => props.$mode === 'light' 
-    ? 'var(--background-light)' 
+  background: ${props => props.$mode === 'light'
+    ? 'var(--background-light)'
     : 'var(--background-dark)'};
   z-index: 100;
   display: flex;
@@ -84,11 +84,11 @@ const MobileMenu = styled(motion.div)<{ $mode: 'light' | 'dark' }>`
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
 `;
 
-const NavLink = styled(motion.a)<{ $mode: 'light' | 'dark' }>`
+const NavLink = styled(motion.a) <{ $mode: 'light' | 'dark' }>`
   font-size: 1.1rem;
   font-weight: 500;
-  color: ${props => props.$mode === 'light' 
-    ? 'var(--text-light)' 
+  color: ${props => props.$mode === 'light'
+    ? 'var(--text-light)'
     : 'var(--text-dark)'};
   text-decoration: none;
   position: relative;
@@ -101,16 +101,16 @@ const NavLink = styled(motion.a)<{ $mode: 'light' | 'dark' }>`
     left: 0;
     width: 0;
     height: 2px;
-    background: ${props => props.$mode === 'light' 
-      ? 'var(--accent-light)' 
-      : 'var(--accent-dark)'};
+    background: ${props => props.$mode === 'light'
+    ? 'var(--accent-light)'
+    : 'var(--accent-dark)'};
     transition: width 0.3s ease;
   }
 
   &:hover {
-    color: ${props => props.$mode === 'light' 
-      ? 'var(--accent-light)' 
-      : 'var(--accent-dark)'};
+    color: ${props => props.$mode === 'light'
+    ? 'var(--accent-light)'
+    : 'var(--accent-dark)'};
     
     &::after {
       width: 100%;
@@ -126,8 +126,8 @@ const MobileNavLink = styled(NavLink)`
 const Hamburger = styled.div<{ $mode: 'light' | 'dark' }>`
   width: 30px;
   height: 3px;
-  background: ${props => props.$mode === 'light' 
-    ? 'var(--text-light)' 
+  background: ${props => props.$mode === 'light'
+    ? 'var(--text-light)'
     : 'var(--text-dark)'};
   position: relative;
   transition: all 0.3s ease;
@@ -138,9 +138,9 @@ const Hamburger = styled.div<{ $mode: 'light' | 'dark' }>`
     position: absolute;
     width: 30px;
     height: 3px;
-    background: ${props => props.$mode === 'light' 
-      ? 'var(--text-light)' 
-      : 'var(--text-dark)'};
+    background: ${props => props.$mode === 'light'
+    ? 'var(--text-light)'
+    : 'var(--text-dark)'};
     transition: all 0.3s ease;
   }
 
@@ -153,12 +153,12 @@ const Hamburger = styled.div<{ $mode: 'light' | 'dark' }>`
   }
 `;
 
-const ThemeToggleButton = styled(motion.button)<{ $mode: 'light' | 'dark' }>`
-  background: ${props => props.$mode === 'light' 
-    ? 'rgba(255, 255, 255, 0.7)' 
+const ThemeToggleButton = styled(motion.button) <{ $mode: 'light' | 'dark' }>`
+  background: ${props => props.$mode === 'light'
+    ? 'rgba(255, 255, 255, 0.7)'
     : 'rgba(30, 30, 30, 0.7)'};
-  border: 2px solid ${props => props.$mode === 'light' 
-    ? 'rgba(95, 108, 175, 0.3)' 
+  border: 2px solid ${props => props.$mode === 'light'
+    ? 'rgba(95, 108, 175, 0.3)'
     : 'rgba(187, 134, 252, 0.3)'};
   cursor: pointer;
   display: flex;
@@ -171,19 +171,19 @@ const ThemeToggleButton = styled(motion.button)<{ $mode: 'light' | 'dark' }>`
   position: relative;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1),
-    0 0 5px ${props => props.$mode === 'light' 
-      ? 'rgba(95, 108, 175, 0.2)' 
-      : 'rgba(187, 134, 252, 0.2)'};
+    0 0 5px ${props => props.$mode === 'light'
+    ? 'rgba(95, 108, 175, 0.2)'
+    : 'rgba(187, 134, 252, 0.2)'};
   
   &:hover {
-    background: ${props => props.$mode === 'light' 
-      ? 'rgba(255, 255, 255, 0.9)' 
-      : 'rgba(40, 40, 40, 0.9)'};
+    background: ${props => props.$mode === 'light'
+    ? 'rgba(255, 255, 255, 0.9)'
+    : 'rgba(40, 40, 40, 0.9)'};
     transform: scale(1.05);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15),
-      0 0 8px ${props => props.$mode === 'light' 
-        ? 'rgba(95, 108, 175, 0.4)' 
-        : 'rgba(187, 134, 252, 0.4)'};
+      0 0 8px ${props => props.$mode === 'light'
+    ? 'rgba(95, 108, 175, 0.4)'
+    : 'rgba(187, 134, 252, 0.4)'};
   }
 `;
 
@@ -219,8 +219,8 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
   const navVariants = {
     hidden: { opacity: 0, y: -50 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.5,
@@ -231,8 +231,8 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
   const linkVariants = {
     hidden: { opacity: 0, y: -20 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: { duration: 0.5 }
     }
@@ -240,8 +240,8 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
 
   const mobileMenuVariants = {
     closed: { x: '100%', opacity: 0 },
-    open: { 
-      x: 0, 
+    open: {
+      x: 0,
       opacity: 1,
       transition: {
         type: 'spring',
@@ -252,17 +252,17 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
   };
 
   return (
-    <HeaderContainer 
+    <HeaderContainer
       $mode={theme}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ 
-        type: 'spring', 
-        stiffness: 100, 
-        damping: 20 
+      transition={{
+        type: 'spring',
+        stiffness: 100,
+        damping: 20
       }}
     >
-      <Logo 
+      <Logo
         $mode={theme}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
@@ -271,10 +271,10 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
       </Logo>
 
       <Nav as={motion.nav} variants={navVariants} initial="hidden" animate="visible">
-        {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
-          <NavLink 
-            key={item} 
-            href={`#${item.toLowerCase()}`} 
+        {['Home', 'About', 'Skills', 'Experience', 'Projects', 'Contact'].map((item) => (
+          <NavLink
+            key={item}
+            href={`#${item.toLowerCase()}`}
             $mode={theme}
             variants={linkVariants}
             whileHover={{ scale: 1.1 }}
@@ -283,17 +283,18 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
             {item}
           </NavLink>
         ))}
-        
+
         {toggleTheme && (
           <ThemeToggleButton
             $mode={theme}
             onClick={toggleTheme}
-            whileTap={{ scale: 0.9 }}
+            whileTap={{ scale: 0.8, rotate: 90 }}
+            whileHover={{ scale: 1.15, boxShadow: theme === 'light' ? '0 0 20px rgba(95, 108, 175, 0.5)' : '0 0 20px rgba(187, 134, 252, 0.5)' }}
             aria-label="Toggle theme"
           >
-            <IconContainer 
-              animate={{ rotate: theme === 'dark' ? 360 : 0 }}
-              transition={{ type: "spring", stiffness: 200, damping: 10 }}
+            <IconContainer
+              animate={{ rotate: theme === 'dark' ? 540 : 0 }}
+              transition={{ type: "spring", stiffness: 120, damping: 8, mass: 0.8 }}
             >
               {theme === 'light' ? (
                 <SunIcon
@@ -341,7 +342,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
         )}
       </Nav>
 
-      <MobileMenuButton 
+      <MobileMenuButton
         onClick={toggleMobileMenu}
         whileTap={{ scale: 0.9 }}
       >
@@ -349,17 +350,17 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
       </MobileMenuButton>
 
       {mobileMenuOpen && (
-        <MobileMenu 
+        <MobileMenu
           $mode={theme}
           variants={mobileMenuVariants}
           initial="closed"
           animate="open"
           exit="closed"
         >
-          {['Home', 'About', 'Skills', 'Projects', 'Contact'].map((item) => (
-            <MobileNavLink 
-              key={item} 
-              href={`#${item.toLowerCase()}`} 
+          {['Home', 'About', 'Skills', 'Experience', 'Projects', 'Contact'].map((item) => (
+            <MobileNavLink
+              key={item}
+              href={`#${item.toLowerCase()}`}
               $mode={theme}
               onClick={() => setMobileMenuOpen(false)}
               whileHover={{ scale: 1.1 }}
@@ -368,7 +369,7 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               {item}
             </MobileNavLink>
           ))}
-          
+
           {toggleTheme && (
             <ThemeToggleButton
               $mode={theme}
@@ -380,9 +381,9 @@ const Header: React.FC<HeaderProps> = ({ theme, toggleTheme }) => {
               style={{ marginTop: '20px' }}
               aria-label="Toggle theme"
             >
-              <IconContainer 
-                animate={{ rotate: theme === 'dark' ? 360 : 0 }}
-                transition={{ type: "spring", stiffness: 200, damping: 10 }}
+              <IconContainer
+                animate={{ rotate: theme === 'dark' ? 540 : 0 }}
+                transition={{ type: "spring", stiffness: 120, damping: 8, mass: 0.8 }}
               >
                 {theme === 'light' ? (
                   <SunIcon
